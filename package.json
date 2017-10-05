@@ -1,0 +1,60 @@
+{
+  "name": "@pracujwpl/graphql-apollo-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest --bail --forceExit",
+    "test:watch": "jest --watch --bail",
+    "tslint": "tslint --config tsling.json src/**/*.ts test/**/*.ts",
+    "prettier": "prettier --config .prettierrc --write",
+    "build": "tsc",
+    "prepush": "npm run test",
+    "precommit": "lint-staged",
+    "start:dev": "nodemon --config local/nodemon.json"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run prettier",
+      "git add"
+    ]
+  },
+  "author": "Tomasz Kula",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "apollo-server-express": "*",
+    "body-parser": "*",
+    "dataloader": "*",
+    "express": "*",
+    "graphql": "*",
+    "graphql-tag": "*",
+    "graphql-tools": "*",
+    "pg-promise": "*"
+  },
+  "devDependencies": {
+    "@types/body-parser": "*",
+    "@types/dotenv": "*",
+    "@types/express": "*",
+    "@types/jest": "*",
+    "dotenv": "*",
+    "husky": "*",
+    "jest": "*",
+    "lint-staged": "*",
+    "nodemon": "*",
+    "ts-jest": "*",
+    "ts-node": "*",
+    "tslint": "*",
+    "typescript": "*"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/test/setupJest.ts"
+  }
+}
